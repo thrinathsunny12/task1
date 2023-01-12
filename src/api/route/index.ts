@@ -9,6 +9,10 @@ import specialityRoute from "./speciality.route";
 import jobtypeRoute from "./jobtype.route";
 import { AppConfig } from "aws-sdk";
 import patientRoute from "./patient.route";
+import hospitalRoute from "./hospital.route";
+import xrefRoute from "./xref.route";
+import employeeRoute from "./employee.route";
+import addressRoute from "./address.route";
 export class Routes {
   private authenticate;
   constructor() {
@@ -22,6 +26,10 @@ export class Routes {
     app.use("/location",locationRoute);
     app.use("/speciality",specialityRoute);
     app.use("/jobtype",jobtypeRoute);
-    app.use("/patient",patientRoute)
+    app.use("/patient",patientRoute);
+    app.use("/hospital",hospitalRoute);
+    app.use("/xref",xrefRoute);
+    app.use("/employee",employeeRoute);
+    app.use("address",addressRoute)
   }
 }

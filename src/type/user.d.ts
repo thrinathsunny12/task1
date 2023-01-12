@@ -14,6 +14,31 @@ export interface LoggedInUser extends BasicUserDetailResponse {
 export interface Locationuser{
   pincode:number;
 }
+
+export interface HospitalRegister{
+  name:string,
+  managingdoctorId:string,
+  specialityId:string,
+  pincode:number;
+  locationId:string
+}
+
+export interface Address{
+  employeeId:string,
+  pincode:number;
+  address:string
+}
+
+export interface EmployeeRegister{
+name:string,
+designationId:string,
+hospitalId:string,
+locationId:string,
+}
+export interface Xref{
+ employeeId:string;
+ patientId:string
+}
 export interface LoggedInUserSocial extends BasicUserDetailResponse {
   token: string;
   stripeCustomerId?: string;

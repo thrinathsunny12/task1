@@ -11,6 +11,10 @@ const location_route_1 = __importDefault(require("./location.route"));
 const speciality_route_1 = __importDefault(require("./speciality.route"));
 const jobtype_route_1 = __importDefault(require("./jobtype.route"));
 const patient_route_1 = __importDefault(require("./patient.route"));
+const hospital_route_1 = __importDefault(require("./hospital.route"));
+const xref_route_1 = __importDefault(require("./xref.route"));
+const employee_route_1 = __importDefault(require("./employee.route"));
+const address_route_1 = __importDefault(require("./address.route"));
 class Routes {
     constructor() {
         const authMiddleware = new authenticate_request_1.AuthenticateRequest();
@@ -24,6 +28,10 @@ class Routes {
         app.use("/speciality", speciality_route_1.default);
         app.use("/jobtype", jobtype_route_1.default);
         app.use("/patient", patient_route_1.default);
+        app.use("/hospital", hospital_route_1.default);
+        app.use("/xref", xref_route_1.default);
+        app.use("/employee", employee_route_1.default);
+        app.use("address", address_route_1.default);
     }
 }
 exports.Routes = Routes;

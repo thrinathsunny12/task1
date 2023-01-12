@@ -94,7 +94,25 @@ const optionalRegNumberValidation = (key: string): Joi.StringSchema =>
        
   
     });
-
+    const xrefValidation = Joi.object({
+      employeeId: Joi.string()
+       
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+        }),
+      patientId: Joi.string()
+        .required() 
+        .messages({
+          "string.base": "password must be a string",
+          "any.required": "password is required",
+          "string.min": "password must be 8 characters long"
+        }),
+       
+  
+    });
     const locationValidation = Joi.object({
       pincode: Joi.number()
         .required()
@@ -102,10 +120,119 @@ const optionalRegNumberValidation = (key: string): Joi.StringSchema =>
           
           "number.pincode": "pincode is invalid",
           "any.required": "pincode is required"
-        }),
-     
-      
+        }),  
   
+    });
+
+
+
+    const addressValidation = Joi.object({
+      employeeId: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+        pincode: Joi.number()
+        .required()
+        .messages({
+          
+          "number.pincode": "pincode is invalid",
+          "any.required": "pincode is required"
+        }),
+
+        address: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+
+  
+    });
+
+    const hospitalValidation = Joi.object({
+      name: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+        managinddoctorId: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+        specialityId: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+        pincode: Joi.number()
+        .required()
+        .messages({
+          
+          "number.pincode": "pincode is invalid",
+          "any.required": "pincode is required"
+        }),
+
+        locationId: Joi.string()
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+
+        }), 
+
+  
+    });
+
+    const employeeValidation = Joi.object({
+      name: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
+    designationId: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
+    hospitalId: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
+    locationId: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
     });
   const patientValidation =Joi.object({
     name: Joi.string()
@@ -157,5 +284,9 @@ export {
   specialityValidation,
   locationValidation,
   patientValidation,
-  jobtypeValidation
+  jobtypeValidation,
+  xrefValidation,
+  employeeValidation,
+  addressValidation,
+  hospitalValidation
 };
