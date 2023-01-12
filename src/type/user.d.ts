@@ -11,13 +11,31 @@ export interface LoggedInUser extends BasicUserDetailResponse {
   stripeCustomerId?: string;
   isAccountSetup?: boolean;
 }
-
+export interface Locationuser{
+  pincode:number;
+}
 export interface LoggedInUserSocial extends BasicUserDetailResponse {
   token: string;
   stripeCustomerId?: string;
   isNewUser: boolean;
   isAccountSetup?: boolean;
 }
+
+export interface Specialityuser{
+  specialityName:string;
+  description:string
+  }
+
+
+  export interface PatientRegister{
+    name:string;
+    dob:string
+    }
+
+    export interface  Jobtype{
+      name:string;
+      description:string
+      }
 
 export interface UserProfile {
   id: string;

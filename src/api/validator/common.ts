@@ -73,6 +73,78 @@ const optionalRegNumberValidation = (key: string): Joi.StringSchema =>
       "string.base": `Car registration number is not in valid format.`
     });
 
+
+    const specialityValidation = Joi.object({
+      specialityName: Joi.string()
+       
+        .required()
+        .messages({
+          "string.base": "Email must be a string",
+          "string.email": "Email is invalid",
+          "any.required": "Email is required"
+        }),
+      description: Joi.string()
+        .required()
+        
+        .messages({
+          "string.base": "password must be a string",
+          "any.required": "password is required",
+          "string.min": "password must be 8 characters long"
+        }),
+       
+  
+    });
+
+    const locationValidation = Joi.object({
+      pincode: Joi.number()
+        .required()
+        .messages({
+          
+          "number.pincode": "pincode is invalid",
+          "any.required": "pincode is required"
+        }),
+     
+      
+  
+    });
+  const patientValidation =Joi.object({
+    name: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
+  dob: Joi.string()
+    .required()
+    
+    .messages({
+      "string.base": "password must be a string",
+      "any.required": "password is required",
+      "string.min": "password must be 8 characters long"
+    }),
+  })
+
+
+  const jobtypeValidation =Joi.object({
+    name: Joi.string()
+       
+    .required()
+    .messages({
+      "string.base": "Email must be a string",
+      "string.email": "Email is invalid",
+      "any.required": "Email is required"
+    }),
+  description: Joi.string()
+    .required()
+    
+    .messages({
+      "string.base": "password must be a string",
+      "any.required": "password is required",
+      "string.min": "password must be 8 characters long"
+    }),
+  })
 export {
   idParamValidation,
   stripeIdParamValidation,
@@ -81,5 +153,9 @@ export {
   optionalStringValidation,
   requiredStringValidation,
   requiredRegNumberValidation,
-  optionalRegNumberValidation
+  optionalRegNumberValidation,
+  specialityValidation,
+  locationValidation,
+  patientValidation,
+  jobtypeValidation
 };
