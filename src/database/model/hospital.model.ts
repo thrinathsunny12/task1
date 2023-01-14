@@ -1,4 +1,5 @@
 import { Speciality } from './speciality.model';
+import { Employee } from './employee.model';
 
 import {
     Column,
@@ -7,7 +8,10 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     ManyToMany,
+    OneToMany,
+    OneToOne,
   } from "typeorm";
+import { Jobtype } from './jobtype.model';
   
   @Entity("hospital")
   export class Hospital{
@@ -24,10 +28,20 @@ import {
     @Column()
     public locationId: string;
 
-    @ManyToMany(()=> Speciality,(speciality:Speciality)=>speciality.hospital,{
-        onDelete:"CASCADE",
-        onUpdate:"CASCADE"
+    @OneToMany(()=>Employee,(employee:Employee)=>employee.hospital,{
+      onDelete:"CASCADE",
+      onUpdate:"CASCADE"
     })
-    speciality:Speciality[]
+    employee:Employee
+
+
+
+    @OneToOne(() => Jobtype, (jobtype: Jobtype) => jobtype.hospital, {
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+    })
+ jobtype:Jobtype
+
+   
   
   }

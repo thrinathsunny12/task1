@@ -14,6 +14,7 @@ import asyncForEach from "@util/asyncForEach";
 
 import { PatientRepo } from '../database/repository/patient.repository';
 import { PatientRegister } from '../type/user';
+import { EmployeeRepo } from "@database/repository/employee.repository";
 
 export class PatientService {
   constructor() {
@@ -28,4 +29,14 @@ export class PatientService {
   });
     return data;
   }
+
+  public async getallemployeeswhotreatedpatient(
+    id:string
+    ): Promise<any> {
+      const patientRepo = getManager().getCustomRepository(EmployeeRepo);
+     
+    const data = patientRepo.getallEmployesswhotreatedPatient(id)
+  
+      return data;
+    }
 }

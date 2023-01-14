@@ -30,6 +30,6 @@ export class Routes {
     app.use("/hospital",hospitalRoute);
     app.use("/xref",xrefRoute);
     app.use("/employee",employeeRoute);
-    app.use("address",addressRoute)
+    app.use("/address",addressRoute)
   }
 }

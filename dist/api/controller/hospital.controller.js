@@ -34,6 +34,16 @@ class HospitalController {
                 .setMessage(i18n_1.default.__("SUCCESS"))
                 .send(res);
         });
+        this.getallEmployeesHospitalbyId = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            const response = yield this.hospitalService.getallHospitalbyId(id);
+            this.responseParser
+                .setStatus(true)
+                .setHttpCode(constant_1.default.HTTP_STATUS_OK)
+                .setBody(response)
+                .setMessage(i18n_1.default.__("SUCCESS"))
+                .send(res);
+        });
         this.responseParser = new response_parser_1.ResponseParser();
         this.hospitalService = new hospital_service_1.HospitalService();
     }

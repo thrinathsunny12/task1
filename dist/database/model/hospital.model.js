@@ -10,8 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Hospital = void 0;
-const speciality_model_1 = require("./speciality.model");
+const employee_model_1 = require("./employee.model");
 const typeorm_1 = require("typeorm");
+const jobtype_model_1 = require("./jobtype.model");
 let Hospital = class Hospital {
 };
 __decorate([
@@ -39,12 +40,19 @@ __decorate([
     __metadata("design:type", String)
 ], Hospital.prototype, "locationId", void 0);
 __decorate([
-    (0, typeorm_1.ManyToMany)(() => speciality_model_1.Speciality, (speciality) => speciality.hospital, {
+    (0, typeorm_1.OneToMany)(() => employee_model_1.Employee, (employee) => employee.hospital, {
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
     }),
-    __metadata("design:type", Array)
-], Hospital.prototype, "speciality", void 0);
+    __metadata("design:type", employee_model_1.Employee)
+], Hospital.prototype, "employee", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => jobtype_model_1.Jobtype, (jobtype) => jobtype.hospital, {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+    }),
+    __metadata("design:type", jobtype_model_1.Jobtype)
+], Hospital.prototype, "jobtype", void 0);
 Hospital = __decorate([
     (0, typeorm_1.Entity)("hospital")
 ], Hospital);

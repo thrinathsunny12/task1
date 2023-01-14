@@ -4,7 +4,9 @@ import {
     PrimaryGeneratedColumn,
     CreateDateColumn,
     UpdateDateColumn,
+    OneToMany,
   } from "typeorm";
+import { Xref } from "./xref.model";
   
   @Entity("patient")
   export class Patient{
@@ -17,5 +19,11 @@ import {
 
     @Column()
     public dob: string;
+
+    @OneToMany(() => Xref, (xref: Xref) => xref.employee, {
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
+    })
+    xref: Xref[];
 
   }

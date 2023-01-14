@@ -10,7 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Jobtype = void 0;
+const employee_model_1 = require("./employee.model");
 const typeorm_1 = require("typeorm");
+const hospital_model_1 = require("./hospital.model");
 let Jobtype = class Jobtype {
 };
 __decorate([
@@ -25,6 +27,20 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Jobtype.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => employee_model_1.Employee, (employee) => employee.id, {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+    }),
+    __metadata("design:type", employee_model_1.Employee)
+], Jobtype.prototype, "employee", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => hospital_model_1.Hospital, (hospital) => hospital.jobtype, {
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+    }),
+    __metadata("design:type", hospital_model_1.Hospital)
+], Jobtype.prototype, "hospital", void 0);
 Jobtype = __decorate([
     (0, typeorm_1.Entity)("job_type")
 ], Jobtype);

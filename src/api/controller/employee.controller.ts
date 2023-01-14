@@ -25,7 +25,7 @@ export class EmployeeController {
   
   public createEmployee = async (req: Request, res: Response): Promise<void> => {
     const {
-      body: { name,designationId,hospitalId,locationId },
+      body: {name,designationId,hospitalId,locationId },
     } = req;
     const response = await this.employeeService.create(name,designationId,hospitalId,locationId);
     this.responseParser

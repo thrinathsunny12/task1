@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Speciality = void 0;
 const typeorm_1 = require("typeorm");
-const hospital_model_1 = require("./hospital.model");
 let Speciality = class Speciality {
 };
 __decorate([
@@ -26,13 +25,6 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Speciality.prototype, "description", void 0);
-__decorate([
-    (0, typeorm_1.ManyToMany)(() => hospital_model_1.Hospital, (hospital) => hospital.speciality, {
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE"
-    }),
-    __metadata("design:type", Array)
-], Speciality.prototype, "hospital", void 0);
 Speciality = __decorate([
     (0, typeorm_1.Entity)("speciality")
 ], Speciality);

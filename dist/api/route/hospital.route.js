@@ -16,6 +16,7 @@ class HospitalRoute {
     }
     assign() {
         this.router.post("/", this.httpRequestValidator.validate("body", common_1.hospitalValidation), this.hospitalController.createHospital);
+        this.router.get("/:id", this.hospitalController.getallEmployeesHospitalbyId);
     }
 }
 exports.default = new HospitalRoute().router;

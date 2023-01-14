@@ -164,7 +164,7 @@ const optionalRegNumberValidation = (key: string): Joi.StringSchema =>
           "any.required": "Email is required"
 
         }), 
-        managinddoctorId: Joi.string()
+        managingdoctorId: Joi.string()
         .required()
         .messages({
           "string.base": "Email must be a string",
@@ -201,32 +201,28 @@ const optionalRegNumberValidation = (key: string): Joi.StringSchema =>
     });
 
     const employeeValidation = Joi.object({
-      name: Joi.string()
-       
+      name: Joi.string()  
     .required()
     .messages({
       "string.base": "Email must be a string",
       "string.email": "Email is invalid",
       "any.required": "Email is required"
     }),
-    designationId: Joi.string()
-       
+    designationId: Joi.string()   
     .required()
     .messages({
       "string.base": "Email must be a string",
       "string.email": "Email is invalid",
       "any.required": "Email is required"
     }),
-    hospitalId: Joi.string()
-       
+    hospitalId: Joi.string()  
     .required()
     .messages({
       "string.base": "Email must be a string",
       "string.email": "Email is invalid",
       "any.required": "Email is required"
     }),
-    locationId: Joi.string()
-       
+    locationId: Joi.string()  
     .required()
     .messages({
       "string.base": "Email must be a string",

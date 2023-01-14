@@ -27,6 +27,11 @@ class PatientRoute {
       this.httpRequestValidator.validate("body", patientValidation),
       this.patientController.createPatient
     );
+
+    this.router.get(
+      "/:id",
+      this.patientController.getallEmployeeswhotreatedpatient
+    );
   }
 }
 

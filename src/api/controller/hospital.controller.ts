@@ -36,6 +36,17 @@ export class HospitalController {
       .send(res);
   };
 
+  public getallEmployeesHospitalbyId = async (req: Request, res: Response): Promise<void> => {
+    const id= req.params.id
+       const response = await this.hospitalService. getallHospitalbyId(id);
+       this.responseParser
+         .setStatus(true)
+         .setHttpCode(constant.HTTP_STATUS_OK)
+         .setBody(response)
+         .setMessage(i18n.__("SUCCESS"))
+         .send(res);
+     };
+  
   
 
   

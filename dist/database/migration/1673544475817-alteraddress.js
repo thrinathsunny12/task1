@@ -9,28 +9,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PatientService = void 0;
+exports.alteraddress1673544475817 = void 0;
 const typeorm_1 = require("typeorm");
-const patient_repository_1 = require("../database/repository/patient.repository");
-const employee_repository_1 = require("@database/repository/employee.repository");
-class PatientService {
+class alteraddress1673544475817 {
     constructor() {
+        this.tableName = "address";
     }
-    create(name, dob) {
+    up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
-            const patientRepo = (0, typeorm_1.getManager)().getCustomRepository(patient_repository_1.PatientRepo);
-            const data = yield patientRepo.save({ name, dob
-            });
-            return data;
+            yield queryRunner.createForeignKey(this.tableName, new typeorm_1.TableForeignKey({
+                name: "link",
+                columnNames: [''],
+                referencedColumnNames: ['id'],
+                referencedTableName: 'clients',
+                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE',
+            }));
         });
     }
-    getallemployeeswhotreatedpatient(id) {
+    down(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
-            const patientRepo = (0, typeorm_1.getManager)().getCustomRepository(employee_repository_1.EmployeeRepo);
-            const data = patientRepo.getallEmployesswhotreatedPatient(id);
-            return data;
         });
     }
 }
-exports.PatientService = PatientService;
-//# sourceMappingURL=patient.service.js.map
+exports.alteraddress1673544475817 = alteraddress1673544475817;
+//# sourceMappingURL=1673544475817-alteraddress.js.map

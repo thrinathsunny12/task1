@@ -147,7 +147,7 @@ const hospitalValidation = joi_1.default.object({
         "string.email": "Email is invalid",
         "any.required": "Email is required"
     }),
-    managinddoctorId: joi_1.default.string()
+    managingdoctorId: joi_1.default.string()
         .required()
         .messages({
         "string.base": "Email must be a string",

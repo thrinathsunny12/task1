@@ -25,6 +25,7 @@ class AddressController {
          * @returns void
          */
         this.createAddress = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            console.log("q111");
             const { body: { employeeId, pincode, address }, } = req;
             const response = yield this.addressService.create(employeeId, pincode, address);
             this.responseParser

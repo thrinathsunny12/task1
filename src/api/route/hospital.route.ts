@@ -27,6 +27,11 @@ class HospitalRoute {
       this.httpRequestValidator.validate("body", hospitalValidation),
       this.hospitalController.createHospital
     );
+
+    this.router.get(
+      "/:id",
+      this.hospitalController. getallEmployeesHospitalbyId
+    );
   }
 }
 

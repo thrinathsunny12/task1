@@ -15,12 +15,28 @@ const hospital_repository_1 = require("@database/repository/hospital.repository"
 class HospitalService {
     constructor() {
     }
-    create(name, managingdoctorId, specialityId, pincode, location) {
+    create(name, managingdoctorId, specialityId, pincode, locationId) {
         return __awaiter(this, void 0, void 0, function* () {
             const hospitalRepo = (0, typeorm_1.getManager)().getCustomRepository(hospital_repository_1.HospitalRepo);
-            const data = yield hospitalRepo.save({ name, managingdoctorId, specialityId, pincode, location
+            const data = yield hospitalRepo.save({ name, managingdoctorId, specialityId, pincode, locationId
             });
             return data;
+        });
+    }
+    getallHospitalbyId(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const hospitalRepo = (0, typeorm_1.getManager)().getCustomRepository(hospital_repository_1.HospitalRepo);
+            const theedu = yield hospitalRepo.getEmployees(id);
+            // const theedu = await hospitalRepo.query(`select hospital.id,hospital.name,hospital.pincode,employee.name,job_type.description,address.address from hospital
+            // left join employee
+            // ON hospital.id = employee.hospital_id
+            // left join job_type 
+            // on hospital.managingdoctor_id=job_type.id
+            // left join address
+            // on employee.id=address.employee_id
+            // where employee.name IS NOT NULL`)
+            //  console.log(theedu)
+            return theedu;
         });
     }
 }

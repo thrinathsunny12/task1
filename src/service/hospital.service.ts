@@ -23,20 +23,42 @@ export class HospitalService {
     managingdoctorId:string,
     specialityId:string,
   pincode:number,
-  location:string
+  locationId:string
   ): Promise<HospitalRegister> {
     const hospitalRepo = getManager().getCustomRepository(HospitalRepo);
    
 
-    const data = await hospitalRepo.save({name,managingdoctorId,specialityId,pincode,location
+    const data = await hospitalRepo.save({name,managingdoctorId,specialityId,pincode,locationId
   });
     return data;
 
   
   }
 
-  
 
+
+  public async getallHospitalbyId(id:string):Promise<any>{
+    const hospitalRepo = getManager().getCustomRepository(HospitalRepo);
+       const theedu = await hospitalRepo.getEmployees(id)
+// const theedu = await hospitalRepo.query(`select hospital.id,hospital.name,hospital.pincode,employee.name,job_type.description,address.address from hospital
+
+// left join employee
+
+// ON hospital.id = employee.hospital_id
+
+// left join job_type 
+
+// on hospital.managingdoctor_id=job_type.id
+
+// left join address
+
+// on employee.id=address.employee_id
+
+// where employee.name IS NOT NULL`)
+      //  console.log(theedu)
+    return theedu
+  }
+ 
 
 
 

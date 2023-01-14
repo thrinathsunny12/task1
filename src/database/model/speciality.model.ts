@@ -20,11 +20,7 @@ import { Hospital } from "./hospital.model";
     @Column()
     public description: string;
 
-    @ManyToMany(()=> Hospital,(hospital:Hospital)=>hospital.speciality,{
-        onDelete:"CASCADE",
-        onUpdate:"CASCADE"
-    })
-    hospital:Hospital[]
+   
 
   }
   

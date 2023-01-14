@@ -31,7 +31,7 @@ class Routes {
         app.use("/hospital", hospital_route_1.default);
         app.use("/xref", xref_route_1.default);
         app.use("/employee", employee_route_1.default);
-        app.use("address", address_route_1.default);
+        app.use("/address", address_route_1.default);
     }
 }
 exports.Routes = Routes;

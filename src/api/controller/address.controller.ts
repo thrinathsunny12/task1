@@ -24,6 +24,8 @@ export class AddressController {
 
   
   public createAddress = async (req: Request, res: Response): Promise<void> => {
+
+    console.log("q111")
     const {
       body: { employeeId,pincode,address},
     } = req;

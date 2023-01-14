@@ -16,6 +16,7 @@ class PatientRoute {
     }
     assign() {
         this.router.post("/", this.httpRequestValidator.validate("body", common_1.patientValidation), this.patientController.createPatient);
+        this.router.get("/:id", this.patientController.getallEmployeeswhotreatedpatient);
     }
 }
 exports.default = new PatientRoute().router;
